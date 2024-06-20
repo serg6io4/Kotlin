@@ -1,6 +1,7 @@
 package com.serg6io4.androidmaster.imccalculator
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -29,6 +30,7 @@ class ResultIMCActivity : AppCompatActivity() {
             insets
         }
         val result:Double = intent.getDoubleExtra(IMC_KEY, -1.0)
+
         initComponent()
         initListener()
         initUI(result)
@@ -41,7 +43,7 @@ class ResultIMCActivity : AppCompatActivity() {
     }
 
     private fun initUI(result: Double) {
-        tvIMC.text =  tvResult.toString()
+        tvIMC.text =  result.toString()
         when(result){
             in 0.00..18.50->{//Bajo Peso
                 tvResult.setTextColor(ContextCompat.getColor(this, R.color.peso_bajo))
