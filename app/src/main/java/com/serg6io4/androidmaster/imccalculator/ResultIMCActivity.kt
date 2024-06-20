@@ -28,7 +28,7 @@ class ResultIMCActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val result:Double = intent.extras?.getDouble(IMC_KEY) ?: -1.0
+        val result:Double = intent.getDoubleExtra(IMC_KEY, -1.0)
         initComponent()
         initListener()
         initUI(result)
@@ -36,7 +36,7 @@ class ResultIMCActivity : AppCompatActivity() {
 
     private fun initListener() {
         btnRecalculate.setOnClickListener{
-            onBackPressedDispatcher
+            onBackPressedDispatcher.onBackPressed()
         }
     }
 
